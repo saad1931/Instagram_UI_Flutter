@@ -27,11 +27,11 @@ class Signin_S extends StatelessWidget {
                  Row(
                    children: [
                      SizedBox(width: 175,),
-                     Login_Box(context,childparam: Text_Widget("Forgot Password?", Color(0xff3797EF),GoogleFonts.nunito,sz: 15,),pcolor: 0xff121212,he: 20,wi: 180),
+                     Login_Box(context, childparam: Text_Widget("Forgot Password?", Color(0xff3797EF),GoogleFonts.nunito,sz: 15,),pcolor: 0xff121212,he: 20,wi: 180),
                    ],
                  ),
                  SizedBox(height: 40,),
-                 Login_Box(context,childparam: Text_Widget("Login", Colors.white,GoogleFonts.nunito,sz: 20,fw: FontWeight.bold),),
+                 Login_Box2(context,childparam: Text_Widget("Login", Colors.white,GoogleFonts.nunito,sz: 20,fw: FontWeight.bold),),
                  SizedBox(height: 30,),
                  Row(
                   children: [
