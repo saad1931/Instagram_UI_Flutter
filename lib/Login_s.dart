@@ -4,7 +4,8 @@ import 'package:instagram/Widgets/box_widget.dart';
 import 'package:instagram/Widgets/profile.dart';
 import 'package:instagram/Widgets/textwidget.dart';
 import 'package:instagram/bottomnavigation.dart';
-
+import 'package:instagram/signin_s.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login_s extends StatefulWidget {
   const Login_s({ Key? key }) : super(key: key);
@@ -14,6 +15,23 @@ class Login_s extends StatefulWidget {
 }
 
 class _Login_sState extends State<Login_s> {
+
+    //shared preference code
+  late SharedPreferences logindata;
+  late String username;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initial();
+  }
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username')!;
+    });
+  }
+  //shared preference code
  
   @override
   Widget build(BuildContext context) {
@@ -23,17 +41,44 @@ class _Login_sState extends State<Login_s> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 130,),
+              SizedBox(height: 80,),
               Text_Widget("Instagram",Colors.white,GoogleFonts.cookie,sz: 80),
               SizedBox(height: 55,),
               Picture_Circle("assets/images/p.jpg"),
+
               SizedBox(height: 10,),
-              Text_Widget("Muhammad Saad", Colors.white,GoogleFonts.nunito,sz: 20),
+              
+              Center(
+                child: Text_Widget('Welcome $username!', Colors.white, GoogleFonts.nunito,sz: 20),
+                
+              ),
+              
+              
               SizedBox(height: 40,),
-              Login_Box2(context, childparam: Text_Widget("Login", Colors.white,GoogleFonts.nunito,sz: 20,fw: FontWeight.bold),),
+              Login_Box2(context, childparam: Text_Widget("Next", Colors.white,GoogleFonts.nunito,sz: 20,fw: FontWeight.bold),),
               SizedBox(height: 20,),
-              Login_Box(context,childparam: Text_Widget("switch acccounts", Color(0xff3797EF),GoogleFonts.nunito,sz: 15,),pcolor: 0xff121212,he: 20,wi: 180),
-              SizedBox(height: 140,),
+              Text_Widget("Or", Colors.grey, GoogleFonts.nunito,sz: 15),
+              SizedBox(height: 20,),
+              Center(
+                child: SizedBox(
+                  height: 50,
+                  width: 300,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    primary: Color(0xff3797EF)
+                  ),
+                  onPressed: () {
+                    logindata.setBool('login', true);
+                    Navigator.pushReplacement(context,
+                        new MaterialPageRoute(builder: (context) => Signin_S()));
+                  },
+                  child: Text_Widget("Logout", Colors.white,GoogleFonts.nunito,sz: 20,fw: FontWeight.bold)),
+                ),
+              ),
+
+              SizedBox(height: 20,),
+              Text_Widget("switch acccounts", Color(0xff3797EF),GoogleFonts.nunito,sz: 15,),
+              SizedBox(height: 100,),
               Row(
                 children: [
                   SizedBox(width: 70,),

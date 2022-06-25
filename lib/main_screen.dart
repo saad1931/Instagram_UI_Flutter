@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:instagram/Widgets/box_widget.dart';
 import 'package:instagram/Widgets/post_widget.dart';
 import 'package:instagram/Widgets/profile.dart';
-
+import 'package:instagram/bottomnavigation.dart';
+import 'package:instagram/signin_s.dart';
 import 'Widgets/textwidget.dart';
 import 'divider_widget.dart';
 
-class Main_Screen extends StatelessWidget {
+class Main_Screen extends StatefulWidget {
   const Main_Screen({ Key? key }) : super(key: key);
+
+  @override
+  State<Main_Screen> createState() => _Main_ScreenState();
+}
+
+class _Main_ScreenState extends State<Main_Screen> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +43,7 @@ class Main_Screen extends StatelessWidget {
                   ],
                 ),
               ),
+              
               SizedBox(height: 15,),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,

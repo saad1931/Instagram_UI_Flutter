@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget Textfield_Widget( l_text,ot)
+Widget Textfield_Widget( l_text,ot,ct)
 {
   return Center(
     child: SizedBox(
@@ -10,6 +10,7 @@ Widget Textfield_Widget( l_text,ot)
       child: TextField(
         obscureText: ot,
         style: TextStyle(color: Colors.white),
+        controller: ct,
         decoration: InputDecoration(
             isDense: true,
             filled: true,

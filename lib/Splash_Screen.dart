@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'package:instagram/Login_s.dart';
+import 'package:instagram/signin_s.dart';
 
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({ Key? key }) : super(key: key);
@@ -17,7 +18,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     Timer(
       Duration(seconds: 3),
       ()=> Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context)=> Login_s()))    
+        context, MaterialPageRoute(builder: (context)=> Signin_S()))    
     );
   }
 

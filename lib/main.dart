@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
        home: Splash_Screen(),
       //home: Main_Screen(),
-      //home: bottomnavigation_s(),
+      //home: btm(),
     );
   }
 }
